@@ -35,6 +35,7 @@ class TestingConfig(Config):
 
 
 """
+Do this:
 
 Should still read Chapter 3 of the book to get this configuration stuff down.
 
