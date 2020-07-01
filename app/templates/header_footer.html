@@ -1,0 +1,80 @@
+<!-- This will store our NAVBAR/Header and FOOTER -->
+
+{% extends "baseblocks.html" %}
+
+
+
+{% block navbar %}
+<!-- 
+content is centering weird
+-->
+<!-- static title, names, date and location, days to go, -->
+<div id="homepage_title" class="container-fluid" >
+  <div id="left_empty">
+    <img id="left_flowers" src="{{ url_for('static', filename='top_left_flower.png') }}">
+  </div>
+    
+    <div id="names" class="col-12 text-center">James & Madeline</div>
+    
+  <div class="row no-gutters">
+    <div id="date" class="col text-center" >NOVEMBER 13, 2021 ~ MAGNOLIA, TEXAS</div>
+  </div>
+  <div id="countdown_row" class="row">
+
+    <div id="countdown" class="col-12 text-center" ><span id="countdown_number"></span> DAYS TO GO!</div>
+  </div>
+
+  <div id="right_empty">
+    <img id="right_flowers" src="{{ url_for('static', filename='top_right_flower.png') }}">
+  </div>
+
+  </div>
+
+  <nav class="nav_block">
+    <ul id="nav_links" class="navigation_links">
+      <li><a id="home_link" href="/">Home</a></li>
+      <li><a id="rsvp_link" href="/guest_count/">RSVP</a></li>
+      <li><a id="registry_link" href="/registry/">Registry</a></li>
+      <li><a id="travel_link" href="/travel/">Travel</a></li>
+    </ul>
+    <!-- <div id="button" class="nav_arrow">
+      <div id="line1"></div>
+      <div id="line2"></div>
+    </div> -->
+  </nav>
+
+
+<div id="flashes">
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-warning alert-dismissible fade show " role="alert" >
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+        aria-hidden="true">&times;</span></button>
+    {{message}}
+  </div>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+
+</div>
+
+{% endblock navbar %}
+
+
+
+{% block content %}{% endblock %}
+
+
+
+{% block footer %}
+
+<div id="footer" class="container-fluid" >
+
+
+
+</div>
+
+
+{% endblock %}
+

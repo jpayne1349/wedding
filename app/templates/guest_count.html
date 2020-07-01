@@ -1,0 +1,39 @@
+{% extends "header_footer.html" %}
+
+{% block content %}
+
+<form action="" method="post" novalidate>
+
+    <div class="form-group">
+
+        {{ form.hidden_tag() }}
+
+        <div class="row">
+
+            <div id="guest_count_title" class="col-10 mx-auto">
+
+                {{ form.guest_number.label() }}
+
+            </div>
+
+        </div>
+        <div class="row">
+
+            <div class="col-6 mx-auto">
+
+                {{ form.guest_number(class="form-control") }}
+
+            </div>
+
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-6">
+                {{ form.submit(class="btn btn-primary", style="margin-top:20px; margin-left:70%;") }}
+            </div>
+        </div>
+    </div>
+
+</form>
+
+
+{% endblock %}

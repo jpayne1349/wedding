@@ -1,0 +1,32 @@
+<!-- {{ forms[each_guest-1].first_name(size=32, class="form-control name-input", placeholder="First Name") }}
+                        {% if method == "POST" and not forms[each_guest-1].first_name.errors %}
+                            <script>
+                                var form_field = document.getElementById("first_name");
+                                form_field.classList.add("is-valid");
+                            </script>
+                            <span id="valid_field"> Looks good! </span>
+                        {%endif%}
+                        {% for error in forms[each_guest-1].first_name.errors %}
+                            <script>
+                                var form_field = document.getElementById("first_name");
+                                form_field.classList.add("is-invalid");
+                            </script>
+                            <span id="invalid_field" > {{ error }} </span>
+                        {% endfor %} -->
+
+
+<!-- {{ forms[each_guest-1].last_name(size=32, class="form-control name-input", placeholder="Last Name") }}
+                                                {% if method == "POST" and not forms[each_guest-1].last_name.errors %}
+                                                    <script>
+                                                        var form_field = document.getElementById("last_name");
+                                                        form_field.classList.add("is-valid");
+                                                    </script>
+                                                    <span id="valid_field" > Looks good! </span>
+                                                {% endif %}
+                                                {% for error in forms[each_guest-1].last_name.errors %}
+                                                    <script>
+                                                        var form_field = document.getElementById("last_name");
+                                                        form_field.classList.add("is-invalid");
+                                                    </script>
+                                                    <span id="invalid_field" > {{ error }} </span>
+                                                {% endfor %} -->

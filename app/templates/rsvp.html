@@ -1,0 +1,109 @@
+<!-- 
+    Design of RSVP form page:
+
+    First selection: How many guests would you like respond for? 
+        Should be like buttons, like a array of buttons would look nice.
+    
+    Second selection: Produce multiple blocks where people can provide the information.
+        Items to include:   First Name, Last Name $ optional button to match all guests last name to the first one input
+                            Toggle: I will be there!, I can't make it
+                            $ if( will be there)
+                                Any song requests?
+
+                        
+    Show/hide with javascript additional classes. 
+    Duplicate as well? 
+    I think you could just grab the outer element. And the inner 'nodes' would come along with it.
+
+    how will the submit process work? how will all forms be submit by one button?
+
+    THIS WILL PROBABLY NEED TO BE DONE THROUGH THE JINJA2 TEMPLATING
+
+    might need to pass in the input of the guest number selection to the template??
+
+    yeah. because the forms are creating with jinja. so, 
+
+    passing in a flask variable called count, pulled from the url
+     -->
+
+
+{% extends "header_footer.html" %}
+
+
+
+
+{% block content %}
+
+<div id="rsvp_page" class="container-fluid">
+
+    <div class="row" id="form_title">Our RSVP form will let us know if you are able to attend the wedding!</div>
+
+    <!-- I think duplicate should wrap the form...  -->
+
+    <form action="" method="post" novalidate>
+        {{ form.csrf_token }}
+        
+        <div id="guest_form" class="form-group">
+            
+            {% for person in form.guest %}
+            <div id="person_number"> Guest {{ loop.index }} </div>
+
+            <div class="row">
+                {{ person.form.csrf_token }}
+
+                <div class="col-md-6">
+                    {{ person.form.first_name(class="form-control",  placeholder="First Name") }}
+
+                    {% for error in person.form.first_name.errors %}
+                    <span id="invalid_field"> {{ error }} </span>
+                    {% endfor %}
+                </div>
+
+                <div class="col-md-6">
+                    {{ person.form.last_name(class="form-control",  placeholder="Last Name") }}
+
+                    {% for error in person.form.last_name.errors %}
+                    <span id="invalid_field"> {{ error }} </span>
+                    {% endfor %}
+                </div>
+
+                <div id="radio_choices" class="col-md-6 mr-auto mt-3" >
+                {% for choice in person.form.response %}
+                    <div class="form-check">
+                        {{ choice(class="form-check-input") }}
+                        {{ choice.label(class="form-check-label") }}
+                    </div>
+                {% endfor %}
+                {% for error in person.form.response.errors %}
+                <span id="invalid_field"> {{ error }} </span>
+                {% endfor %}
+                </div>
+                <!-- Adding in the radio field and song request stuff next  -->
+                <div id="song_request{{loop.index-1}}" class="col-12 song-request hide">
+                    <span id="song_header" > We are looking for music suggestions for the reception. If you'd like to hear a certain song, let us know! This is optional. </span>
+                    {{ person.form.song_request(class="form-control", style="margin-top:0px !important;", placeholder="Song - Artist") }}                    
+                </div>
+
+            </div>
+
+            <div id="bottom_border"></div>
+            {% endfor %}
+
+
+
+        </div>
+        <div id="rsvp_submit">
+            <button class="btn btn-primary" formmethod="post" type="submit">Submit</button>
+        </div>
+
+    </form>
+
+
+
+
+
+</div>
+
+<script src="{{ url_for('static',filename='scripts/rsvpScripts.js') }}"></script>
+
+{% endblock %}
