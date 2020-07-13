@@ -7,12 +7,16 @@ from app import db
 
 public_access_bp = Blueprint('public_access_bp', __name__) 
 
+@public_access_bp.route('/travel/')
+def travel_page():
+
+    return render_template('travel.html')
 
 @public_access_bp.route('/')
 @public_access_bp.route('/home/')
 def homepage():
     #flash("Site under development! Comments and suggestions welcome.")
-    return render_template('homepage.html', title='HomePage')
+    return render_template('homepage.html')
 
 @public_access_bp.route('/guest_count/', methods=['GET', 'POST'])
 def guest_count_page():
@@ -20,7 +24,7 @@ def guest_count_page():
     if form.validate_on_submit():
         count = form.guest_number.data
         return redirect(url_for('public_access_bp.rsvp_page', count=count))
-    return render_template('guest_count.html', title='Guest Count', form=form)
+    return render_template('guest_count.html', form=form)
 
 @public_access_bp.route('/rsvp/', methods=['GET', 'POST'])
 def rsvp_page():
@@ -47,7 +51,7 @@ def rsvp_page():
         flash("Your information was submitted! Thanks for testing the database. The information will be deleted when the website goes public.")
         return render_template('homepage.html', title='HomePage')
       
-    return render_template('rsvp.html', title='RSVP', method=method, count=count, form=form )
+    return render_template('rsvp.html', method=method, count=count, form=form )
 
 
 

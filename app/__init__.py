@@ -13,7 +13,7 @@ def create_app():
     """Initialize the core application."""
     app = Flask(__name__, instance_relative_config=False)
 
-    app.config.from_object('config.DevelopmentConfig') # grabbing the development config class out of config.py
+    app.config.from_object('config.ProductionConfig') # grabbing the development config class out of config.py
 
     db.init_app(app)
     migrate.init_app(app, db)

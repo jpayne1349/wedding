@@ -8,6 +8,38 @@
 
 @font-face { font-family: Quicksand; src: url('/static/Quicksand-Regular.otf'); }
 
+#travel_heading {
+    margin-left:auto;
+    margin-right:auto;
+    max-width: 80vw;
+    text-align: center;
+}
+
+#magnolia_link {
+    border-bottom: hidden;
+}
+#magnolia_logo {
+    height:5vw;
+}
+
+#map{
+    height: 50vh;
+    width:80vw;
+    border-radius: 2%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#directions_div {
+    margin-left:auto;
+    margin-right:auto;
+    width:80vw;
+}
+
+#directions_btn {
+    margin-top:20px;
+    width:80vw;
+}
 .animate-in {
     -webkit-animation: fadeIn 1s ease-in;
     animation: fadeIn 1s ease-in;
@@ -162,7 +194,7 @@ form {
 .navigation_links {
 
     display: flex;
-    max-width: 700px;
+    max-width: 600px;
     justify-content: space-evenly;
     list-style: none;
     font-size: 1.5vw;
@@ -220,6 +252,15 @@ a.active_link {
 /* if width is less than 800, cellphone */
 @media screen and (max-width: 768px) {
 
+    #magnolia_logo {
+        height:10vw;
+        margin-top:20%;
+    }
+
+    #map{
+    /* margin-top:20%; */
+    }
+
     #left_flowers {
         height: 20vw;
         top:0vw;
@@ -267,6 +308,7 @@ a.active_link {
         position: fixed;
         height:8vh;
         width:100vw;
+        max-width: 768px;
         bottom:-5px;
         display:flex;
         align-items: center;
@@ -339,7 +381,7 @@ a.active_link {
 
 #page_content {
 
-    min-height:100vh;
+    min-height:90vh;
 
 }
 
