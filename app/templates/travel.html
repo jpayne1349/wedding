@@ -1,0 +1,38 @@
+{% extends "header_footer.html" %}
+
+
+{% block head %}
+
+    {{super()}}
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuH4MJ9ku7IwMjC64vO26CkT84DZc62Po"
+         ></script>
+    <script src="{{ url_for('static',filename='scripts/travelScripts.js') }}" defer></script>
+
+{% endblock %}
+
+<!-- Google maps API key?
+AIzaSyBuH4MJ9ku7IwMjC64vO26CkT84DZc62Po -->
+
+{% block content %}
+
+<div class="animate-in" id="page_content">
+
+<div id='travel_heading'>
+    <a href='https://www.magnoliabells.com/' id='magnolia_link'>
+        <img id='magnolia_logo' src='https://images.squarespace-cdn.com/content/5e515a0920efa21346615ffa/1586791077397-GR3YU341929ZKW3RP6S7/stroke1pt.png?format=1500w&content-type=image%2Fpng'>
+    </a>
+</div>
+
+<div id="map"></div>
+
+<div id='directions_div'>
+    <button id='directions_btn' class='btn btn-primary' >Get Directions!</button>
+
+</div>
+
+</div>
+
+
+{% endblock %}
