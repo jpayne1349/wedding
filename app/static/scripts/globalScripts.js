@@ -33,8 +33,6 @@ countdown_number.innerText = daysBetween(todays_date, wedding_date).toString();
 
 /*  NAVIGATION LINKS */
 
-// TODO: this doesn't show that you are on the homepage when you first navigate to page.
-
 let links = document.querySelectorAll("a");
 
 links.forEach(setActive);
