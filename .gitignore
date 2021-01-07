@@ -5,4 +5,4 @@ migrations
 server_info.txt
 __pycache__
 config.py
-
+env

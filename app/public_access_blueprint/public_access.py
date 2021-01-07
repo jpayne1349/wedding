@@ -9,7 +9,7 @@ public_access_bp = Blueprint('public_access_bp', __name__)
 
 @public_access_bp.route('/travel/')
 def travel_page():
-
+    #api_key = app.config.get('MAPS_API_KEY')
     return render_template('travel.html')
 
 @public_access_bp.route('/')
@@ -39,28 +39,32 @@ def rsvp_page():
         for guests in range(count):    
             form.guest.append_entry()
 
+    # here is where we will have to check against the database for duplicates
     if form.validate_on_submit():
+        matched_guest = []
         for num in range(count):
-            first_name = form.guest.data[num].get('first_name')
-            last_name = form.guest.data[num].get('last_name')
+            #lowercase the names for easier duplicate checking
+            first_name = form.guest.data[num].get('first_name').lower()
+            last_name = form.guest.data[num].get('last_name').lower()
             response = form.guest.data[num].get('response')
             song_request = form.guest.data[num].get('song_request')
-            new_guest = Guest(first_name=first_name,last_name=last_name,response=response,song_request=song_request)
-            db.session.add(new_guest)
+            #check for an exact name match in the database.
+            # what to do if one is found? it could be after things have been added to the session?
+            if not Guest.query.filter_by(last_name=last_name).filter_by(first_name=first_name).first():
+                print('no match found')
+                new_guest = Guest(first_name=first_name,last_name=last_name,response=response,song_request=song_request)
+                db.session.add(new_guest)
+            else:
+                print('match found')
+                match = first_name + ' ' + last_name
+                matched_guest.append(match)
         db.session.commit()
+        for duplicate in matched_guest:
+            flash(f'An entry for the guest "{duplicate}" has already been saved!')
+        # TODO: just put a simple check here to not say the info was submitted if it wasn't...
         flash("Your information was submitted! Thanks for testing the database. The information will be deleted when the website goes public.")
         return render_template('homepage.html', title='HomePage')
       
     return render_template('rsvp.html', method=method, count=count, form=form )
 
-
-
-"""
-Possible Future Routes:
-
-Contact Us / Feedback
-
-
-
-"""
 
