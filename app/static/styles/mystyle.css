@@ -256,6 +256,11 @@ a.active_link {
     margin-bottom:5px;
 }
 
+#guest_count_form {
+    margin-top:0%;
+
+}
+
 /* if width is less than 800, cellphone */
 @media screen and (max-width: 768px) {
 
@@ -361,6 +366,11 @@ a.active_link {
 
     .clicked {
         transform: rotateY(180deg);
+    }
+
+    #guest_count_form {
+        margin-top:30%;
+
     }
     
 }

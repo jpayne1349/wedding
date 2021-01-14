@@ -1,5 +1,6 @@
 // @ts-check
 
+// the global version of this only works when the URL is guest_count, the page prior to /rsvp
 let rsvp_link = document.getElementById("rsvp_link");
 rsvp_link.classList.add("active_link");
 
@@ -13,6 +14,7 @@ function get(name) {
 let count = get('count');
 
 
+// this is building the unique page based on the number of people input previously
 for(var i = 0; i < parseInt(count); i++) {
     let yes_radio_name = "guest-" + i.toString() + "-response-0";
     let song_block_name = "song_request" + i.toString();
