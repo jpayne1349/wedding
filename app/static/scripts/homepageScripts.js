@@ -1,14 +1,4 @@
-// need to make our carousel of photos here...
 
-
-// basically a list of photos. styled and moved left and right with buttons
-
-
-// these photos will be large.. so download waiting will have to be a thing..
-
-// basically, we could store these photos in a js list/array
-// and show hide them based on a timing function.
-// also listening for small button presses, to change if needed.
 
 var image_container = $('#image_container');
 
@@ -27,10 +17,8 @@ image_container.css({
     'height': container_height + 'px',
 });
 
+// declaration of new elements
 var shadow_container = document.createElement('div');
-
-image_container.append(shadow_container);
-
 var image_one = new Image();
 
 if( window_width > 768 ) {
@@ -75,18 +63,10 @@ if( window_width > 768 ) {
 
 console.log(typeof(container_height))
 
-// needs to be an array. . .
-// can do some async type stuff. as the images load in, let it populate this thing.
-// could have them sit under the view of the page and slide up?? 
-// play/pause button slightly visible somewhere, maybe a back and forward button.. might look nice.
-
-
-
-// move this into the window_width check...
-
 image_one.onload = function () {
   image_container.append(this);
   console.log( 'image loaded?');
+  image_container.append(shadow_container);
 };
 
 image_one.error = function () {

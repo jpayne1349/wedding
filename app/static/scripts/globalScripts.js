@@ -70,3 +70,28 @@ window.addEventListener('resize', function() {
         console.log('page refresh on resize');
     } , 500);
 });
+
+
+// javascript onload waiting for the flower images as well
+
+var left_empty = $('#left_empty');
+var right_empty = $('#right_empty');
+
+var left_flowers = new Image();
+left_flowers.id = 'left_flowers';
+left_flowers.src = '/static/top_left_flower.png';
+
+var right_flowers = new Image();
+right_flowers.id = 'right_flowers';
+right_flowers.src = '/static/top_right_flower.png';
+
+
+left_flowers.onload = function() {
+    left_empty.append(this);
+
+};
+
+right_flowers.onload = function() {
+    left_empty.append(this);
+
+};
