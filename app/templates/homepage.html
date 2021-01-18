@@ -1,17 +1,22 @@
 
 
+
 {% extends "header_footer.html" %}
 
+{% block head %}
 
+{{super()}}
+
+<script src="{{ url_for('static',filename='scripts/homepageScripts.js') }}" defer></script>
+
+{% endblock %}
 
 
 {% block content %}
 
-<div id="page_content" class="parallax animate-in"></div>
+<div id="image_container"></div>
 
 <!-- <div id="page_content" class="container-fluid" > -->
-
-
 
 
 </div>
