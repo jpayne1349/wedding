@@ -46,5 +46,27 @@ function setActive (link) {
 
 /*  END NAVIGATION LINKS */
 
-/*  RSVP FORM   */
 
+// Changing names size for cell phone view
+
+var window_width = $(window).width();
+
+if(window_width < 768) {
+
+    let text = $('#names').text();
+    console.log(text)
+
+}
+
+
+// page resize calls for refresh
+
+window.addEventListener('resize', function() { 
+    // small delay for finish of resize
+    // TODO: add in a whole page spinner here? would look professional
+    //
+    setTimeout(function() {
+        location.reload();
+        console.log('page refresh on resize');
+    } , 500);
+});

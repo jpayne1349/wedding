@@ -31,32 +31,58 @@ var shadow_container = document.createElement('div');
 
 image_container.append(shadow_container);
 
-$(shadow_container).css({
-    'z-index':'3',
-    'height':container_height + 'px',
-    'width':'100%',
-    'background-color':'rgba(0,0,0,0)',
-    'box-shadow':'0 70px 40px -30px white inset',
-    'position':'absolute'
-});
-
-
-
-
-// needs to be an array. . .
-// can do some async type stuff. as the images load in, let it populate this thing.
-// could have them sit under the view of the page and slide up?? 
-// play/pause button slightly visible somewhere, maybe a back and forward button.. might look nice.
 var image_one = new Image();
 
-$(image_one).css({
+if( window_width > 768 ) {
+    $(shadow_container).css({
+        'z-index':'3',
+        'height':container_height + 'px',
+        'width':'100%',
+        'background-color':'rgba(0,0,0,0)',
+        'box-shadow':'0 70px 30px -30px white inset',
+        'position':'absolute',
+        'top':container_pos.top - 2 + 'px'
+    });
+    
+    $(image_one).css({
+    
+    'width':'100vw',
+    'height': container_height + 'px',
+    'object-fit':'cover',
+    'object-position':'50% 80%'
+
+}); 
+} else { // mobile view
+    $(shadow_container).css({
+        'z-index':'3',
+        'height':container_height + 'px',
+        'width':'100%',
+        'background-color':'rgba(0,0,0,0)',
+        'box-shadow':'0 100px 30px -30px white inset',
+        'position':'absolute',
+        'top':container_pos.top - 2 + 'px'
+    });
+    
+    $(image_one).css({
     
     'width':'100vw',
     'height': container_height + 'px',
     'object-fit':'cover',
     'object-position':'50% 100%'
 
-});
+}); 
+}
+
+console.log(typeof(container_height))
+
+// needs to be an array. . .
+// can do some async type stuff. as the images load in, let it populate this thing.
+// could have them sit under the view of the page and slide up?? 
+// play/pause button slightly visible somewhere, maybe a back and forward button.. might look nice.
+
+
+
+// move this into the window_width check...
 
 image_one.onload = function () {
   image_container.append(this);

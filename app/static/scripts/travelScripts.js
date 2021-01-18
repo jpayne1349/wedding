@@ -9,7 +9,7 @@ function initMap() {
 
     var marker = new google.maps.Marker({
         position: { lat: 30.225747, lng: -95.770798 },
-        map: map,
+        map: map
     });
 
     marker.addListener("click", function () {
@@ -17,13 +17,20 @@ function initMap() {
         map.setCenter(marker.getPosition());
     });
 
+    map.addListener("center_changed", () => {
+    // 3 seconds after the center of the map has changed, pan back to the
+    // marker.
+    window.setTimeout(() => {
+      map.panTo(marker.getPosition());
+    }, 3000);
+    });
 }
 
 initMap();
 
-let directions_btn = document.getElementById('directions_btn');
+let maps_btn = document.getElementById('maps_btn');
 
-directions_btn.onclick = function () {
+maps_btn.onclick = function () {
     if /* if we're on iOS, open in Apple Maps */
         ((navigator.platform.indexOf("iPhone") != -1) ||
         (navigator.platform.indexOf("iPad") != -1) ||
@@ -34,7 +41,13 @@ directions_btn.onclick = function () {
 
 }
 
+let google_btn = document.getElementById('google_btn');
 
+google_btn.onclick = function () {
+
+    window.open("http://www.google.com/search?q=Magnolia+Bells+699+FM+1486");
+
+}
 /* 
     Magnolia Bells: 30.225747 -95.770798
 
