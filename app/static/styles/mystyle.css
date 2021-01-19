@@ -223,11 +223,11 @@ form {
 
 a {
     padding:5px 10px 2px;
-    
     border-bottom: 2px solid grey;
     transition: all 1s ease;
 
 }
+
 a:hover {
     text-decoration: none;
     border-bottom: 2px solid black;
@@ -338,7 +338,7 @@ a.active_link {
     .navigation_links {
         
         position: fixed;
-        height:8vh;
+        height:7vh;
         width:100vw;
         max-width: 768px;
         bottom:-5px;
@@ -348,6 +348,7 @@ a.active_link {
         background-color: white;
         opacity: 0.95;
         border-radius: 3%;
+        padding-bottom: 20px;
         margin-bottom: 0px;
         transition: transform 0.5s ease-in;
 
@@ -395,7 +396,7 @@ a.active_link {
 
     #physical_address {
     margin-top: 3%;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
     text-align: center;
     font-family: Quicksand;
     font-size:4vw;

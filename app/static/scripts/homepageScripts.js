@@ -4,6 +4,9 @@ var image_container = $('#image_container');
 
 // we want to know a few things, so we can set the pictures to the right size..
 var window_height = $(window).height();
+
+console.log('window height = ', window_height);
+
 var window_width = $(window).width();
 
 var container_pos = image_container.offset();
@@ -56,18 +59,18 @@ if( window_width > 768 ) {
     'width':'100vw',
     'height': container_height + 'px',
     'object-fit':'cover',
-    'object-position':'50% 100%'
-
+    'object-position':'50% 100%',
+    'display': 'none'
 }); 
 }
 
-console.log(typeof(container_height))
+image_container.append(shadow_container)
 
 image_one.onload = function () {
-  image_container.append(this);
-  console.log( 'image loaded?');
-  image_container.append(shadow_container);
-};
+    image_container.append(image_one);
+    image_one.style.display = 'block';
+
+    };
 
 image_one.error = function () {
   console.log('ERROR!');
