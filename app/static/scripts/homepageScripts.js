@@ -3,11 +3,8 @@
 var image_container = $('#image_container');
 
 // we want to know a few things, so we can set the pictures to the right size..
-var window_height = $(window).height();
+var window_height = document.documentElement.clientHeight;
 
-console.log('window height = ', window_height);
-
-var window_width = $(window).width();
 
 var container_pos = image_container.offset();
 console.log(container_pos.top, container_pos.left);
