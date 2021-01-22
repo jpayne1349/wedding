@@ -6,6 +6,7 @@
 {%- block html %}
   <head>
     {%- block head %}
+    
     <title>{% block title %} #StickingWithPayne {% endblock title %}</title>
 
     {%- block metas %}
@@ -50,9 +51,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
       integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <!-- <script src="https://use.fontawesome.com/e641eb7363.js"></script> -->
-
     <script src="{{ url_for('static',filename='scripts/globalScripts.js') }}"></script>
-
     {%- endblock scripts %}
     {%- endblock body %}
     </div>

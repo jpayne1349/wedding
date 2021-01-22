@@ -3,11 +3,11 @@
 
 {% extends "header_footer.html" %}
 
-{% block head %}
+{% block scripts %}
 
 {{super()}}
 
-<script src="{{ url_for('static',filename='scripts/homepageScripts.js') }}" defer></script>
+<script src="{{ url_for('static',filename='scripts/homepageScripts.js') }}" ></script>
 
 {% endblock %}
 

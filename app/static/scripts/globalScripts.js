@@ -1,5 +1,6 @@
 // @ts-check
 
+
 /*  DAYS TO GO SCRIPT   */
 
 function daysBetween(date1, date2) {
