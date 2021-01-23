@@ -342,6 +342,13 @@ a.active_link {
   }
 }
 
+#homepage_image {
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+}
+
 /* if width is less than 800, cellphone */
 @media screen and (max-width: 768px) {
 
@@ -483,26 +490,6 @@ a.active_link {
         font-size: 4vw;
     }
     
-}
-
-
-
-.parallax {
-
-  /* The image used
- background-image: url("/static/cooking_photo.jpeg");
-
-  /* Set a specific height 
-  min-height: 100vh;
-
-
-  Create the parallax scrolling effect 
-  background-attachment: relative; changed this from fixed to move it down into view at the start
-  javascript could change it to fixed when it becomes fully in view? i dunno 
-  background-position: center;
-  background-repeat: no-repeat; 
-  background-size: cover; */
-
 }
 
 

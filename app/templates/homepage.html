@@ -7,7 +7,7 @@
 
 {{super()}}
 
-<script src="{{ url_for('static',filename='scripts/homepageScripts.js') }}" ></script>
+<script src="{{ url_for('static',filename='scripts/homepageScripts.js') }}" defer ></script>
 
 
 {% endblock %}
@@ -15,14 +15,8 @@
 
 {% block content %}
 
+<div id='height_block' > </div>
 <div id="image_container"></div>
-
-<!-- <div id="page_content" class="container-fluid" > -->
-
-
-</div>
-
-
 
 {% endblock %}
 
