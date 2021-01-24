@@ -2,6 +2,7 @@
 .wrapper {
     position: relative;
     overflow-x: hidden;
+    min-height: 100vh;
 }
 
 @font-face { font-family: Sophia; src: url('/static/SophiaChristie.ttf'); }
@@ -9,10 +10,17 @@
 @font-face { font-family: Quicksand; src: url('/static/Quicksand-Regular.otf'); }
 
 #flashes {
-    display: ;
+    
     margin-left:auto;
     margin-right:auto;
     max-width: 600px;
+}
+
+#page_content {
+
+    position: relative;
+    z-index: 3;
+
 }
 
 #travel_heading {
@@ -153,6 +161,8 @@
 #guest_count_title {
     font-family: Quicksand;
     text-align:center;
+    z-index: 4;
+    position: relative;
 
 }
 
@@ -267,7 +277,10 @@ a.active_link {
 
 #guest_count_form {
     margin-top:0%;
-
+    z-index: 5;
+    /* //background-color: rgba(255, 255, 255, 0.582);
+    border-radius: 24px;
+} */
 }
 
 #physical_address {
@@ -342,7 +355,7 @@ a.active_link {
   }
 }
 
-#homepage_image {
+#homepage_image, #guest_image {
     opacity: 0;
     transition-property: opacity;
     transition-duration: 1s;
@@ -461,7 +474,7 @@ a.active_link {
     }
 
     #guest_count_form {
-        margin-top:30%;
+        margin-top:0%;
 
     }
 

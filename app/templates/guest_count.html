@@ -1,5 +1,14 @@
 {% extends "header_footer.html" %}
 
+{% block scripts %}
+
+{{super()}}
+
+<script src="{{ url_for('static',filename='scripts/guestCountScripts.js') }}" defer></script>
+
+
+{% endblock %}
+
 {% block content %}
 
 <form id="page_content"  action="" method="post" novalidate>
@@ -35,5 +44,5 @@
 
 </form>
 
-
+<div id='guest_image_container'> </div>
 {% endblock %}
