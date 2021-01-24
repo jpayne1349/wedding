@@ -48,18 +48,6 @@ function setActive (link) {
 /*  END NAVIGATION LINKS */
 
 
-// Changing names size for cell phone view
-
-var window_width = $(window).width();
-
-if(window_width < 768) {
-
-    let text = $('#names').text();
-    console.log(text)
-
-}
-
-
 // page resize calls for refresh
 
 window.addEventListener('resize', function() { 

@@ -1,13 +1,9 @@
 
 
-
-
-console.log(document.fonts.ready);
-
 var fontsReadyPromise = document.fonts.ready;
 
 fontsReadyPromise.then(
-    function(value) { addImage(); console.log(value);}
+    function(value) { addImage(); }
 );
 
 //  call this when the 'web font' has loaded..
@@ -20,6 +16,7 @@ function addImage() {
     // we want to know a few things, so we can set the pictures to the right size..
     var window_height = document.documentElement.clientHeight;
 
+    var window_width = document.documentElement.clientWidth;
 
     // our problem is calling this .offset function before the actual font is loaded in..
     var container_pos = image_container.offset();
@@ -81,10 +78,10 @@ function addImage() {
 
 
 
-    image_one.onload = function(ev) {
+    image_one.onload = function() {
         image_container.append(shadow_container)
         image_container.append(image_one);
-        console.log(ev);
+        
         setTimeout(function() {
             let image = $('#homepage_image');
             image.css('opacity', '1');
