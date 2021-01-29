@@ -41,7 +41,7 @@ body {overflow: hidden; }
 }
 
 #map{
-    height: 50vh;
+    height: 30vh;
     width:80vw;
     border-radius: 2%;
     margin-left:auto;
