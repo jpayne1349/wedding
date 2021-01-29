@@ -1,9 +1,14 @@
 
 
+
 var fontsReadyPromise = document.fonts.ready;
 
+
 fontsReadyPromise.then(
-    function(value) { addImage(); }
+    function(value) { 
+        addImage();
+        
+    }
 );
 
 //  call this when the 'web font' has loaded..
@@ -38,7 +43,7 @@ function addImage() {
 
     if( window_width > 768 ) {
         $(shadow_container).css({
-            'z-index':'3',
+            'z-index':'2',
             'height':container_height + 'px',
             'width':'100%',
             'background-color':'rgba(0,0,0,0)',
@@ -48,7 +53,7 @@ function addImage() {
         });
         
         $(image_one).css({
-        
+        'z-index':'1',
         'width':'100vw',
         'height': container_height + 'px',
         'object-fit':'cover',
@@ -57,7 +62,7 @@ function addImage() {
     }); 
     } else { // mobile view
         $(shadow_container).css({
-            'z-index':'3',
+            'z-index':'2',
             'height':container_height + 'px',
             'width':'100%',
             'background-color':'rgba(0,0,0,0)',
@@ -67,7 +72,7 @@ function addImage() {
         });
         
         $(image_one).css({
-        
+        'z-index':'1',
         'width':'100vw',
         'height': container_height + 'px',
         'object-fit':'cover',
@@ -85,6 +90,7 @@ function addImage() {
         setTimeout(function() {
             let image = $('#homepage_image');
             image.css('opacity', '1');
+            $('.loader_elips').css('opacity','0');
         }, 200);
 
         };
@@ -96,3 +102,4 @@ function addImage() {
     image_one.src = '/static/engagement_one.jpg';
 
 }
+

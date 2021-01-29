@@ -1,5 +1,4 @@
 
-
 var fontsReadyPromise = document.fonts.ready;
 
 fontsReadyPromise.then(
@@ -91,6 +90,7 @@ function addImage() {
         setTimeout(function() {
             let image = $('#guest_image');
             image.css('opacity', '1');
+            $('.loader_elips').css('opacity','0');
         }, 200);
 
         };
