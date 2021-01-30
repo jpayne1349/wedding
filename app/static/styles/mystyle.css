@@ -370,6 +370,17 @@ a.active_link {
     transition-timing-function: linear;
 }
 
+#registry_div {
+    position: relative;
+    display: flex;
+    margin-top: 10vh;
+    
+}
+
+#amazon_registry {
+    background-image: url('/static/amazon_logo.png');
+}
+
 /* if width is less than 800, cellphone */
 @media screen and (max-width: 768px) {
 

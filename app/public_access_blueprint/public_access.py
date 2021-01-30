@@ -7,6 +7,11 @@ from app import db
 
 public_access_bp = Blueprint('public_access_bp', __name__) 
 
+@public_access_bp.route('/registry/')
+def registry_page():
+    
+    return render_template('registry.html')
+
 @public_access_bp.route('/travel/')
 def travel_page():
     #api_key = app.config.get('MAPS_API_KEY')
