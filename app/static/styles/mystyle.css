@@ -296,7 +296,7 @@ a.active_link {
 .loader_div {
     
     position: absolute;
-    top:60%;
+    top:70%;
     left:50%;
     transform: translate(-40px, -40px);
     
@@ -363,22 +363,15 @@ a.active_link {
   }
 }
 
-#homepage_image, #guest_image {
+#homepage_image, #guest_image, #registry_div {
     opacity: 0;
     transition-property: opacity;
     transition-duration: 1s;
     transition-timing-function: linear;
 }
 
-#registry_div {
-    position: relative;
-    display: flex;
-    margin-top: 10vh;
-    
-}
-
 #amazon_registry {
-    background-image: url('/static/amazon_logo.png');
+    /* background-image: url('/static/amazon_logo.png'); */
 }
 
 /* if width is less than 800, cellphone */
