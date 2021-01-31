@@ -155,14 +155,16 @@ function createLink() {
             'transform':'rotate(-45deg)'
             
         });
-    } else {
+    } else { // MOBILE VIEW
 
                 $(link_div).css({
             'width':'60vw',
             // 'height':'10vh',
-            // 'background-color':'gray',
+            // 'background-color':'rgb',
+            'box-shadow':'20px -50px 20px -50px white inset',
+            'border-radius':'5px',
             'position':'absolute',
-            'top':'80vh',
+            'bottom':'55vh',
             'left':'5vw',
             'z-index':'10',
             'cursor':'pointer'
@@ -174,7 +176,8 @@ function createLink() {
             'font-size':'8vw',
             'color':'white',
             'font-family':'Quicksand',
-            'margin-right':'2vw'
+            'margin-right':'2vw',
+            'margin-left':'2vw'
         });
     
         $(arrow_div).css({
