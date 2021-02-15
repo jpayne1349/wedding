@@ -1,8 +1,12 @@
 // @ts-check
 
+
 // the global version of this only works when the URL is guest_count, the page prior to /rsvp
 let rsvp_link = document.getElementById("rsvp_link");
 rsvp_link.classList.add("active_link");
+
+let pagebody = document.querySelector('body');
+pagebody.style.overflow="scroll";
 
 
 /* this thing is parsing the url and will get argument values out of it*/

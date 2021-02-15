@@ -2,7 +2,14 @@
 
 {% extends "header_footer.html" %}
 
+{% block scripts %}
 
+{{super()}}
+
+<script src="{{ url_for('static',filename='scripts/rsvpScripts.js') }}" defer></script>
+
+
+{% endblock %}
 
 
 {% block content %}
@@ -74,7 +81,5 @@
 
 
 </div>
-
-<script src="{{ url_for('static',filename='scripts/rsvpScripts.js') }}"></script>
 
 {% endblock %}

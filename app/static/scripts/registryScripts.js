@@ -126,14 +126,15 @@ function createLink() {
     let arrow_div = document.createElement('div');
     arrow_div.className = 'arrow_div';
 
-    link_text.addEventListener('mouseover', function() {
-        $(arrow_div).css({transform:'rotate(-45deg) translate(10px, 10px)'});
-    });
-    link_text.addEventListener('mouseout', function() {
-        $(arrow_div).css({transform:'rotate(-45deg) translate(0px, 0px)'});
-    });
-
     if( window_width > 768 ) {
+
+                link_text.addEventListener('mouseover', function() {
+            $(arrow_div).css({transform:'rotate(-45deg) translate(10px, 10px)'});
+        });
+        link_text.addEventListener('mouseout', function() {
+            $(arrow_div).css({transform:'rotate(-45deg) translate(0px, 0px)'});
+        });
+       
         $(link_div).css({
             'width':'30vw',
             // 'height':'10vh',
@@ -167,24 +168,22 @@ function createLink() {
 
                 $(link_div).css({
             'width':'60vw',
-            // 'height':'10vh',
-            // 'background-color':'rgb',
-            'box-shadow':'white 0px -1px 5px 0px inset, white 0px 1px 5px 0px inset',
-            // 'box-shadow':'0px 0px 0px 0px white inset',
+            'box-shadow':'white 0px 0px 25px 40px, white 0px 0px 0px 0px inset',
             'border-radius':'10px',
             'padding-bottom': '5px',
             'position':'absolute',
             'bottom':'55vh',
             'left':'5vw',
             'z-index':'10',
-            'cursor':'pointer'
+            'cursor':'pointer',
+            'background-color':'#fff'
         });
 
         
         $(link_text).css({
             'display':'inline-block',
             'font-size':'8vw',
-            'color':'white',
+            'color':'black',
             'font-family':'Quicksand',
             'margin-right':'2vw',
             'margin-left':'2vw'
@@ -192,7 +191,7 @@ function createLink() {
     
         $(arrow_div).css({
             'display':'inline-block',
-            'border':'solid white',
+            'border':'solid black',
             'border-width':'0 0.6vw 0.6vw 0',
             'padding':'1.5vw',
             'transform':'rotate(-45deg)'

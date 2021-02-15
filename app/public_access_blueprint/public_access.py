@@ -72,21 +72,3 @@ def rsvp_page():
       
     return render_template('rsvp.html', method=method, count=count, form=form )
 
-
-
-
-    """
-        ^^ TODO above.
-        still need to make the website name. and do the ssl stuff...
-
-        would like to take out the fade in loading. looks dumb
-
-        also look into a javascript hold on the page for loading the flowers? looks weird to watch them load
-
-        add the registry links she wants..
-
-        add a carousel in to the mainpage... with the engagement photos, will probably also need js loading of some sort.
-
-        Clear the remote database and run some more tests to make sure it's working well?
-        
-    """
