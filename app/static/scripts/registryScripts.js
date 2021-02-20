@@ -38,6 +38,7 @@ function addImage() {
 
     // declaration of new elements
     var shadow_container = document.createElement('div');
+    shadow_container.className = 'shadow_container';
     var image_one = new Image();
 
     image_one.id = 'registry_image';
@@ -58,7 +59,7 @@ function addImage() {
         'width':'120vw',
         'height': container_height + 'px',
         'object-fit':'cover',
-        'object-position':'20% 60%',
+        'object-position':'50% 70%',
 
     }); 
     } else { // mobile view
@@ -67,14 +68,14 @@ function addImage() {
             'height':container_height + 'px',
             'width':'100%',
             'background-color':'rgba(0,0,0,0)',
-            'box-shadow':'0 100px 30px -30px white inset',
+            'box-shadow':'0 150px 30px -30px white inset',
             'position':'absolute',
             'top':container_pos.top - 2 + 'px'
         });
         
         $(image_one).css({
         'z-index':'1',
-        'width':'110vw',
+        'width':'100vw',
         'height': container_height + 'px',
         'object-fit':'cover',
         'object-position':'40% 100%',
@@ -100,7 +101,11 @@ function addImage() {
     console.log('ERROR!');
     };
 
-    image_one.src = '/static/engagement_three.jpg';
+    if(window_width > 768) {
+        image_one.src = '/static/engagement_three.jpg';
+    } else {
+        image_one.src = '/static/engagement_six.jpg';
+    }
 
 }
 
@@ -166,17 +171,19 @@ function createLink() {
         });
     } else { // MOBILE VIEW
 
-                $(link_div).css({
+        let registry_div_pos = $('#registry_div').offset();
+
+        $(link_div).css({
             'width':'60vw',
-            'box-shadow':'white 0px 0px 25px 40px, white 0px 0px 0px 0px inset',
+            
             'border-radius':'10px',
             'padding-bottom': '5px',
             'position':'absolute',
-            'bottom':'55vh',
-            'left':'5vw',
+            'top': (registry_div_pos.top + 30) + 'px',
+            'left':'22vw',
             'z-index':'10',
             'cursor':'pointer',
-            'background-color':'#fff'
+            
         });
 
         

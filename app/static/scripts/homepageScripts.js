@@ -76,7 +76,7 @@ function addImage() {
         'width':'100vw',
         'height': container_height + 'px',
         'object-fit':'cover',
-        'object-position':'50% 100%',
+        'object-position':'60% 100%',
         
     }); 
     }
@@ -99,7 +99,13 @@ function addImage() {
     console.log('ERROR!');
     };
 
-    image_one.src = '/static/engagement_one.jpg';
+    if(window_width > 768) {
+        image_one.src = '/static/engagement_one.jpg';
+    } else {
+        image_one.src = '/static/engagement_four.jpg';
+    }
+
+    
 
 }
 

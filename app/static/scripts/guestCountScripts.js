@@ -55,10 +55,16 @@ function addImage() {
         'height': container_height + 'px',
         'object-fit':'cover',
         'object-position':'50% 80%',
-         'position':'absolute',
+        'position':'absolute',
 
     }); 
     } else { // mobile view
+        image_container.css({
+        'width':'100vw',
+        'height': container_height + 'px',
+        'top':(flashes_position.top + 100) + 'px',
+        'position': 'absolute'
+        });
         $(shadow_container).css({
             'z-index':'1',
             'height':container_height + 'px',
@@ -74,7 +80,7 @@ function addImage() {
         'width':'100vw',
         'height': container_height + 'px',
         'object-fit':'cover',
-        'object-position':'50% 100%',
+        'object-position':'53% 100%',
         'position':'absolute',
         // 'top':flashes_position.top + 'px'
         
@@ -99,6 +105,10 @@ function addImage() {
     console.log('ERROR!');
     };
 
-    image_one.src = '/static/engagement_two.jpg';
+    if(window_width > 768) {
+        image_one.src = '/static/engagement_two.jpg';
+    } else {
+        image_one.src = '/static/engagement_five.jpg';
+    }
 
 }
