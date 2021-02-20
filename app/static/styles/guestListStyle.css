@@ -1,0 +1,80 @@
+
+
+@font-face { font-family: Sophia; src: url('/static/SophiaChristie.ttf'); }
+
+@font-face { font-family: Quicksand; src: url('/static/Quicksand-Regular.otf'); }
+
+/* desktop styling */
+#title {
+    font-size:5vw;
+    font-family: Quicksand;
+}
+
+#guest_list_container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.party_div{ 
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border: black solid 1px;
+    border-radius: 5px;
+    width: 80%;
+}
+
+.guest_div{
+    display: flex;
+    margin: 5px 0 5px 0px;
+}
+
+.name_div, .response_div, .song_div, .timestamp_div {
+    margin: 0 1.5vw 0px 1.5vw;
+}
+
+.name_div {
+    min-width: 20%;
+}
+
+.timestamp_div {
+    font-size: 1.5vw;
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.song_div {
+    font-size: 1.5vw;
+    align-self: flex-end;
+    max-width: 25%;
+    }
+
+/* mobile styling / secondary */
+
+@media screen and (max-width: 768px) {
+
+    #title {
+        font-size: 10vw;
+    }
+
+    .guest_div {
+        flex-wrap: wrap;
+    }
+
+    .name_div, .response_div, .song_div, .timestamp_div {
+    flex-basis: 45%
+    }
+
+    .timestamp_div {
+        font-size: 2.5vw;
+        align-self: flex-end;
+        margin-left: auto;
+    }
+
+    .song_div {
+        font-size: 2.5vw;
+        align-self: flex-end;
+    }
+}

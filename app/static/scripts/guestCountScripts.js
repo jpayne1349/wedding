@@ -19,7 +19,7 @@ function addImage() {
     // our problem is calling this .offset function before the actual font is loaded in..
     //var container_pos = image_container.offset();
     // console.log(container_pos.top, container_pos.left);
-    var flashes = $('#flashes');
+    var flashes = $('#page_content');
     var flashes_position = flashes.offset();
 
     // use the bottom of the header, and the page size, to calculate container height.

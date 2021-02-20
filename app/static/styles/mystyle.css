@@ -11,11 +11,21 @@ body {overflow: hidden; }
 
 @font-face { font-family: Quicksand; src: url('/static/Quicksand-Regular.otf'); }
 
+.alert {
+    width: 80% !important;
+    text-align: center !important;   
+}
+
 #flashes {
-    
-    margin-left:auto;
-    margin-right:auto;
-    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    min-height: 50vh;
+    align-items: center;
+    justify-content: flex-end;
+    z-index: 10;
 }
 
 #page_content {
@@ -178,10 +188,19 @@ body {overflow: hidden; }
 #form_title {
     font-family: Quicksand;
     max-width: 768px;
-    margin: 20px auto 20px;
+    margin: 50px auto 10px;
     justify-content: center;
     text-align: center;
     font-size: 2.5vw;
+}
+
+#form_note {
+    font-family: Quicksand;
+    max-width: 768px;
+    margin: 0px auto 20px;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.5vw;
 }
 
 form {
@@ -401,7 +420,13 @@ a.active_link {
 
     #form_title {
         font-size:5vw;
+        margin: 5px auto 10px;
     }
+
+    #form_note {
+        font-size:2.5vw;  
+    }
+
     #song_header {
         font-size:4vw;
     }   

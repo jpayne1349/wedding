@@ -22,6 +22,7 @@ class GuestForm(FlaskForm):
     last_name = StringField('Last Name', validators=[InputRequired("Last Name Needed")])
     response = RadioField(choices=[('yes','I will be attending.'),('no','I am unable to attend.')], validators=[InputRequired("Response Required")])
     song_request = TextAreaField('Song Request')
+    timestamp = StringField()
 
 class RsvpForm(FlaskForm):
     guest = FieldList(FormField(GuestForm))

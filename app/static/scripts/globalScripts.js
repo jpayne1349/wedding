@@ -47,19 +47,34 @@ function setActive (link) {
 
 /*  END NAVIGATION LINKS */
 
+// flashes div makes some stuff unclickable.
+
+let flashes = document.getElementById('flashes');
+
+if(flashes.children.length == 0) {
+    flashes.style.zIndex = '0';
+
+}
+
 
 // page resize calls for refresh
+let resize_urls = ['/','/guest_count/','/registry/'];
 
-window.addEventListener('resize', function() { 
-    // small delay for finish of resize
-    // TODO: add in a whole page spinner here? would look professional
-    //
-    setTimeout(function() {
-        location.reload();
-        console.log('page refresh on resize');
-    } , 500);
+
+resize_urls.forEach(function(value) {
+    console.log(window.location.pathname);
+    if(window.location.pathname == value) {
+        window.addEventListener('resize', function() { 
+            // small delay for finish of resize
+            // TODO: add in a whole page spinner here? would look professional
+            //
+            setTimeout(function() {
+                location.reload();
+                console.log('page refresh on resize');
+            } , 500);
+        });
+    }   
 });
-
 
 // javascript onload waiting for the flower images as well
 
