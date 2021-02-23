@@ -40,7 +40,7 @@
 }
 
 .timestamp_div {
-    font-size: 1.5vw;
+    font-size: 1vw;
     align-self: flex-end;
     margin-left: auto;
 }
@@ -50,6 +50,21 @@
     align-self: flex-end;
     max-width: 25%;
     }
+
+.delete_div {
+    align-self: flex-start;
+    margin-right: 5px;
+    font-size: 1.3vw;
+    cursor: pointer;
+    user-select: none;
+    color: #aea4a482;
+    position: fixed;
+    right: 10%;
+}
+
+.delete_div:hover {
+    color: palevioletred;
+}
 
 /* mobile styling / secondary */
 
@@ -76,5 +91,10 @@
     .song_div {
         font-size: 2.5vw;
         align-self: flex-end;
+    }
+
+    .delete_div {
+        font-size: 4.3vw;
+        transform: translate(1px, -6px);
     }
 }

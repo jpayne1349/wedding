@@ -89,7 +89,6 @@ function displayGuestList(parties) {
 
     let parties_list = Object.values(parties);
     console.log(parties_list);
-    
     let previous_color = '';
 
     for( let party = 0; party < parties_list.length; party++) {
@@ -117,6 +116,7 @@ function displayGuestList(parties) {
 
             let guest_div = document.createElement('div');
             guest_div.className = 'guest_div';
+            guest_div.id = first_name + '_' + last_name;
     
             let name_div = document.createElement('div');
             name_div.className = 'name_div';
@@ -142,12 +142,57 @@ function displayGuestList(parties) {
                 guest_div.appendChild(timestamp_div);
             }
             
+            let delete_div = document.createElement('div');
+            delete_div.className = 'delete_div';
+            delete_div.innerText = 'X';
+            delete_div.addEventListener('click', function() {deleteGuestEntry(guest_div)});
+
+            guest_div.appendChild(delete_div);
+
             party_div.appendChild(guest_div);
         }
         container.appendChild(party_div);
     }
 }
 
+function deleteGuestEntry(guest_elem) {
+
+    let name_id = guest_elem.id;
+    let name_array = name_id.split('_');
+    let first_name = name_array[0];
+    let last_name = name_array[1];
+
+    if( confirm('Guest response for ' + capitalizeFirstLetter(first_name) + ' ' + capitalizeFirstLetter(last_name) + ' will be permanently deleted.')) {
+
+
+
+        fetch('/rsvp/guest_list/delete/', {
+            method: 'POST',
+            body: JSON.stringify(name_array),
+            headers: {
+            'Content-Type': 'application/json'
+        },
+        })
+        .then(response => {
+            response.json().then( data => {
+                if(data.length == 1) {
+                    guest_elem.remove();
+                } else{
+                    let parent_party = guest_elem.parentNode;
+                    guest_elem.remove();
+                    parent_party.remove();
+
+                }
+            });
+        });
+
+
+    }
+
+
+
+
+}
 
 function random_color() {
 

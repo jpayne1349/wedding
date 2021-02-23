@@ -102,7 +102,6 @@ def rsvp_page():
 def guest_list():
     # render some html to call another request
     #
-
     return render_template('guest_list.html')
 
 @public_access_bp.route('/rsvp/guest_list/approved/', methods=['POST'])
@@ -137,3 +136,28 @@ def guest_list_approved():
     response = json.dumps(response_package)
 
     return response
+
+
+@public_access_bp.route('/rsvp/guest_list/delete/', methods=['POST'])
+def delete_guest():
+    
+    guest_name_array = request.get_json()
+    first_name, last_name = guest_name_array[0], guest_name_array[1]
+    print(first_name, last_name)
+
+    guest = Guest.query.filter_by(last_name=last_name).filter_by(first_name=first_name).first()
+
+    guest_party_num = guest.party_number
+    db.session.delete(guest)
+
+    old_party = Party.query.filter_by(id=guest_party_num).first()
+
+    resp_list = ['guest']
+
+    if(len(old_party.guests) == 0):
+        db.session.delete(old_party)
+        resp_list.append('party')
+
+    db.session.commit()
+    
+    return json.dumps(resp_list)
